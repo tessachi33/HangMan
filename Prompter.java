@@ -1,4 +1,4 @@
-import java.io.console;
+import java.io.Console;
 
 public class Prompter{
   private Game mGame;
