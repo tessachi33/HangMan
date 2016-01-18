@@ -18,4 +18,16 @@ public class Game {
    }
    return isYes;
  }
+
+ public String getCurrentProgress(){
+   String progress = "";
+   for (char letter : mAnswer.toCharArray()) {
+     char display = '-';
+     if (mYes.indexOf(letter) >= 0) {
+       display = letter;
+     }
+     progress += display;
+   }
+   return progress;
+ }
 }
