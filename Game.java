@@ -8,4 +8,14 @@ public class Game {
    mYes = "";
    mNo = "";
  }
+
+ public boolean applyGuess(char letter){
+   boolean isYes = mAnswer.indexOf(letter) >= 0;
+   if(isYes) {
+     mYes += letter;
+   } else {
+     mNo += letter;
+   }
+   return isYes;
+ }
 }
