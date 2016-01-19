@@ -1,4 +1,5 @@
 public class Game {
+public static final int MAX_MISSES = 7; 
  private String mAnswer;
  private String mYes;
  private String mNo;
