@@ -13,7 +13,7 @@ public class Prompter{
     return mGame.applyGuess(guess);
   }
 
-  public displayProgress() {
+  public void displayProgress() {
     System.out.printf("Try to solve:  %s\n", mGame.getCurrentProgress());
   }
 }
