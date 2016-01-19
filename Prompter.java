@@ -6,6 +6,13 @@ public class Prompter{
     mGame = game;
   }
 
+  public void play() {
+    while (mGame.getRemainingTries() > 0) {
+      displayProgress();
+      promptForGuess();
+    }
+  }
+
   public boolean promptForGuess() {
     Console console = System.console();
     String guessAsString = console.readLine("Enter a letter:  ");
