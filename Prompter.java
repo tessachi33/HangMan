@@ -13,12 +13,22 @@ public class Prompter{
     }
   }
 
-  public boolean promptForGuess() {
-    Console console = System.console();
-    String guessAsString = console.readLine("Enter a letter:  ");
-    char guess = guessAsString.charAt(0);
-    return mGame.applyGuess(guess);
-  }
+
+    public boolean promptForGuess() {
+     Console console = System.console();
+      boolean isYes = false;
+      boolean isValidGuess = false;
+      while (!isValidGuess) {
+       String guessAsString = console.readLine("Enter a letter:  ");
+        try {
+         isYes = mGame.applyGuess(guessAsString);
+         isValidGuess = true;
+        } catch (IllegalArgumentException iae) {
+          console.printf("%s.  Please try again.\n", iae.getMessage());
+        }
+      }
+      return isYes;
+    }
 
   public void displayProgress() {
     System.out.printf("You have %d tries left to solve:  %s\n", mGame.getRemainingTries(), mGame.getCurrentProgress());
