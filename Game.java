@@ -10,7 +10,26 @@ public static final int MAX_MISSES = 7;
    mNo = "";
  }
 
+ private char validateGuess(char letter) {
+   if (! Character.isLetter(letter)) {
+     throw new IllegalArgumentException("A letter is required");
+   }
+   letter = Character.toLowerCase(letter);
+   if (mNo.indexOf(letter) >= 0 || mYes.indexOf(letter) >= 0) {
+     throw new IllegalArgumentException (letter + " has already been guessed");
+   }
+   return letter;
+ }
+
+ public boolean applyGuess(String letters) {
+   if (letters.length() == 0){
+     throw new IllegalArgumentException("No letter found");
+   }
+   return applyGuess(letters.charAt(0));
+ }
+
  public boolean applyGuess(char letter){
+   letter = validateGuess(letter);
    boolean isYes = mAnswer.indexOf(letter) >= 0;
    if(isYes) {
      mYes += letter;
