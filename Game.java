@@ -1,5 +1,5 @@
 public class Game {
-public static final int MAX_MISSES = 7;
+public static final int MAX_MISSES = 5;
  private String mAnswer;
  private String mYes;
  private String mNo;
@@ -54,5 +54,13 @@ public static final int MAX_MISSES = 7;
  public int getRemainingTries() {
    return MAX_MISSES - mNo.length();
 
+ }
+
+ public String getAnswer() {
+   return mAnswer;
+ }
+
+ public boolean isSolved() {
+   return getCurrentProgress().indexOf('-') == -1;
  }
 }
