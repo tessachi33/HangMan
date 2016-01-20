@@ -7,9 +7,14 @@ public class Prompter{
   }
 
   public void play() {
-    while (mGame.getRemainingTries() > 0) {
+    while (mGame.getRemainingTries() > 0 && !mGame.isSolved()) {
       displayProgress();
       promptForGuess();
+    }
+    if (mGame.isSolved()) {
+      System.out.printf("wooooo, it was totally '%s', you won with %d tries left! Maybe it is a sign! \n", mGame.getAnswer(), mGame.getRemainingTries());
+    }else{
+      System.out.printf("Bummer, you totally lost and the word was %s. Maybe it is a sign you need me?  \n", mGame.getAnswer());
     }
   }
 
